@@ -1,0 +1,17 @@
+
+<!-- when the home page loads, show the following... -->
+{{#unless article}}
+	<p class="text-align center">Click "Spy Scraper" to add articles</p>
+	<p class="text-align center">Click "Propaganda" to view the scraped articles</p>
+	<p class="text-align center">Click "Ministry of Truth" to return here</p>
+{{/unless}}	
+<!-- collections (a materialize component) allow you to group list objects together -->
+<ul class="collection">
+  {{#each article}}
+	<li class="collection-item">
+		<a href="{{this.link}}" target="_blank">{{this.title}}</a>
+		<button data-id="{{this._id}}" class="save-btn waves-effect waves-light btn right">Save</button>
+		<p>{{this.summary}}</p>
+	</li>
+  {{/each}}
+</ul>  	

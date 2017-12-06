@@ -1,0 +1,14 @@
+
+
+	<!-- collections (a materialize component) allow you to group list objects together -->
+	<ul class="collection">
+	  {{#each article}}
+		<li class="collection-item">
+			<a href="{{this.link}}" target="_blank">{{this.title}}</a>
+			<a href="{{this._id}}" class="comment-btn green-text right"><i class="medium material-icons">comment</i> Comment</a>
+			<button data-id="{{this._id}}" class="waves-effect waves-light btn unsave-btn yellow black-text right">Unsave</button>
+			<br>
+			<p>{{this.summary}}</p>
+		</li>
+	  {{/each}}
+	</ul>  	

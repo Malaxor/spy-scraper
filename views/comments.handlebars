@@ -1,0 +1,47 @@
+
+<div class="wrapper">
+	<div class="row">
+		<div class="col s12">
+			<h4><a href="{{article.link}}" target="_blank">{{article.title}}</a></h4>
+		</div>
+		<hr>
+		<div class="col s12">
+		 	<h4>Comments</h4>
+			<!-- if there aren't any comments, display a message -->
+			{{#unless article.comment}}	
+				<p>This article has no comments. Add a comment bellow, if you wish.</p>
+			{{/unless}}
+		</div>
+
+		<div class="col s12">
+			<ul class="collection" id="collection-comments">
+				{{#each article.comment}}
+				  <li class="collection-item comment">
+				  	<button class="btn-floating btn-large waves-effect waves-light red delete-btn" data-id="{{this._id}}">X</button> Comment: {{this.body}}
+				  	<em class="secondary-content grey-text">Name: {{this.name}}</em>
+				  </li>
+				{{/each}}    	
+			</ul>
+		</div>
+	</div>
+
+    <div class="col s12">
+        <h4>Add a Comment</h4>
+        <form class="col s12" method="POST" action="/{{article._id}}">
+            <div class="row">
+	            <div class="input-field col s6">
+	                <input id="name" type="text" class="validate" name="name" required>
+	                <label for="name">Name</label>
+	            </div>
+
+	            <div class="input-field col s12">
+	                <textarea id="comment" class="materialize-textarea" name="body" required></textarea>
+	                <label for="comment">Comment</label>
+	            </div>
+	            <div class="col s12">
+	                <button class="btn waves-effect waves-light red" type="submit" name="action">Submit<i class="material-icons right">send</i></button>
+	            </div>
+            </div>
+        </form>
+    </div>		
+</div>	
